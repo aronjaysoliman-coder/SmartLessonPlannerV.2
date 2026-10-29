@@ -17,7 +17,7 @@ import { LessonPlanCore } from '@/lib/types';
 export default function ViewPlanScreen() {
   const { id, edit } = useLocalSearchParams<{ id: string; edit?: string }>();
   const router = useRouter();
-  const { setDraft } = useDraft();
+  const { openDraft } = useDraft();
   const [plan, setPlan] = useState<LessonPlanCore | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isExporting, setIsExporting] = useState(false);
@@ -29,16 +29,18 @@ export default function ViewPlanScreen() {
       setPlan(found);
       setIsLoading(false);
       if (found && edit === '1') {
-        setDraft(found);
-        router.replace('/create/editor');
+        try {
+          await openDraft(found);
+          router.replace('/create/editor');
+        } catch { setError('Could not preserve your unfinished lesson. Please try again.'); }
       }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
-  function onEdit() {
+  async function onEdit() {
     if (!plan) return;
-    setDraft(plan);
+    try { await openDraft(plan); } catch { setError("Could not preserve your unfinished lesson. Please try again."); return; }
     router.push('/create/editor');
   }
 
@@ -117,6 +119,7 @@ export default function ViewPlanScreen() {
           <PlanPreview plan={plan} />
         </View>
 
+        <Text style={styles.pdfHint}>PDF format: Classic School layout · A4 portrait</Text>
         <PrimaryButton title={isExporting ? 'Preparing PDF…' : 'Export PDF & Share'} onPress={onExportAndShare} loading={isExporting} />
         <View style={{ height: spacing.sm }} />
         <PrimaryButton title="Edit" onPress={onEdit} variant="outline" />
@@ -128,6 +131,7 @@ export default function ViewPlanScreen() {
 }
 
 const styles = StyleSheet.create({
+  pdfHint: { fontSize: 12, lineHeight: 18, color: colors.muted, textAlign: 'center', marginBottom: 10 },
   safe: { flex: 1, backgroundColor: colors.bg },
   previewCard: { backgroundColor: colors.card, borderRadius: radius.md, borderWidth: 1, borderColor: colors.border, padding: spacing.lg, marginBottom: spacing.lg },
   notFound: { alignItems: 'center', justifyContent: 'center', padding: spacing.xxl, gap: spacing.sm },

@@ -33,6 +33,7 @@ const LessonPlanSchema = new mongoose.Schema(
 
     gradeLevel: String,
     subject: String,
+    learningAreaReviewRequired: { type: Boolean, default: false },
     term: String,
     week: String,
     learningCompetencies: String,

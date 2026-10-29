@@ -1,0 +1,668 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" type="device" version="24.7.17">
+  <diagram id="p0" name="00 Overview">
+    <mxGraphModel dx="1100" dy="1700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="SmartLessonPlanner | Module-Based Flowcharts" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;fillColor=#16316B;strokeColor=#16316B;fontColor=#FFFFFF;fontSize=23;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="25" width="1020" height="64" />
+        </mxCell>
+        <mxCell id="subtitle" value="Current implementation review - 29 October 2026. Each module has a dedicated page. Arrows indicate workflow, not a claim of production readiness." style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;fillColor=#F3F5F8;strokeColor=#CBD5E1;fontColor=#475569;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="94" width="1020" height="52" />
+        </mxCell>
+        <mxCell id="start" value="START: Open SmartLessonPlanner" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="180" width="270" height="72" />
+        </mxCell>
+        <mxCell id="m1" value="MODULE 1&#10;Authentication and Account Access" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="310" width="270" height="72" />
+        </mxCell>
+        <mxCell id="m2" value="MODULE 2&#10;Home, Profile and Settings" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="440" width="270" height="72" />
+        </mxCell>
+        <mxCell id="m3" value="MODULE 3&#10;Grade-Based Lesson Setup" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="570" width="270" height="72" />
+        </mxCell>
+        <mxCell id="m4" value="MODULE 4&#10;Objectives, Activities and Focused Editor" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="700" width="270" height="72" />
+        </mxCell>
+        <mxCell id="m6" value="MODULE 6&#10;Review, Save and Classic School PDF Export" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="830" width="270" height="72" />
+        </mxCell>
+        <mxCell id="m5" value="MODULE 5&#10;My Plans: Search, View, Edit and Delete" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="960" width="270" height="72" />
+        </mxCell>
+        <mxCell id="end" value="END: Saved lesson plan / shared PDF" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="1090" width="270" height="72" />
+        </mxCell>
+        <mxCell id="e12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="start" target="m1">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="m1" target="m2">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="m2" target="m3">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="m3" target="m4">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="m4" target="m6">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="m6" target="m5">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="m5" target="end">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e19" value="Edit saved plan" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="m5" target="m4">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="resume" value="Resume unfinished lesson&#10;Restore saved workflow step" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;shape=cylinder;fillColor=#F2F0FF;strokeColor=#6B5BA6;fontColor=#41366B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="570" width="270" height="100" />
+        </mxCell>
+        <mxCell id="e21" value="Resume" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="m2" target="resume">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e22" value="Editor example; restore actual step" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="resume" target="m4">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="nav" value="Home also opens My Plans,&#10;Profile, Settings, or PDF Templates" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;fillColor=#F3F5F8;strokeColor=#CBD5E1;fontColor=#475569;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="790" y="440" width="270" height="100" />
+        </mxCell>
+        <mxCell id="e24" value="Navigate" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="m2" target="nav">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e25" value="My Plans" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="nav" target="m5">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="progress-note" value="IMPLEMENTED IN CODE: authentication; six-module navigation; grade-based learning areas; local autosave/resume; reviewable AI suggestions; saved-plan management; Classic School PDF export.&#10;PENDING VERIFICATION: physical-device testing and live backend/AI checks. SHS reference lists require school-specific offering confirmation. Cloud backup is best-effort, without a durable retry queue." style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;fillColor=#F3F5F8;strokeColor=#CBD5E1;fontColor=#475569;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="1290" width="1020" height="105" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="p1" name="01 Authentication">
+    <mxGraphModel dx="1100" dy="1700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Module 1 | Authentication and Account Access" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;fillColor=#16316B;strokeColor=#16316B;fontColor=#FFFFFF;fontSize=23;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="25" width="1020" height="64" />
+        </mxCell>
+        <mxCell id="subtitle" value="1.1 Splash / session check | 1.2 Login | 1.3-1.4 Validation and errors | 1.5-1.6 Registration" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;fillColor=#F3F5F8;strokeColor=#CBD5E1;fontColor=#475569;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="94" width="1020" height="52" />
+        </mxCell>
+        <mxCell id="start" value="START: Launch app / show splash" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="180" width="270" height="72" />
+        </mxCell>
+        <mxCell id="session" value="Existing session restored?" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rhombus;fillColor=#FFF1CD;strokeColor=#B7790A;fontColor=#5C4200;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="310" width="270" height="110" />
+        </mxCell>
+        <mxCell id="home" value="Open Home&#10;Continue to Module 2" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="790" y="330" width="270" height="72" />
+        </mxCell>
+        <mxCell id="e7" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="session" target="home">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="choose" value="Choose Log In or Create Account" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;shape=parallelogram;perimeter=parallelogramPerimeter;fillColor=#F0F5FF;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="490" width="270" height="72" />
+        </mxCell>
+        <mxCell id="register" value="Create Account:&#10;Full name, email, password, confirm password" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;shape=parallelogram;perimeter=parallelogramPerimeter;fillColor=#F0F5FF;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="610" width="270" height="100" />
+        </mxCell>
+        <mxCell id="login" value="Log In:&#10;Enter email and password" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;shape=parallelogram;perimeter=parallelogramPerimeter;fillColor=#F0F5FF;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="610" width="270" height="100" />
+        </mxCell>
+        <mxCell id="valid" value="Inputs valid?" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rhombus;fillColor=#FFF1CD;strokeColor=#B7790A;fontColor=#5C4200;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="790" width="270" height="110" />
+        </mxCell>
+        <mxCell id="errors" value="Show field validation errors&#10;Correct inputs" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="810" width="270" height="72" />
+        </mxCell>
+        <mxCell id="e13" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="valid" target="errors">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e14" value="Retry" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="errors" target="choose">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="request" value="Submit login or registration&#10;to authenticated backend" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="980" width="270" height="72" />
+        </mxCell>
+        <mxCell id="success" value="Request successful?" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rhombus;fillColor=#FFF1CD;strokeColor=#B7790A;fontColor=#5C4200;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="1110" width="270" height="110" />
+        </mxCell>
+        <mxCell id="failed" value="Show understandable error&#10;Retry credentials / connection" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="790" y="1130" width="270" height="72" />
+        </mxCell>
+        <mxCell id="e18" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="success" target="failed">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e19" value="Retry" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="failed" target="choose">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="store" value="Store session token&#10;Restore account profile" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="1290" width="270" height="72" />
+        </mxCell>
+        <mxCell id="end" value="Open Home / Module 2" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="1420" width="270" height="72" />
+        </mxCell>
+        <mxCell id="e22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="start" target="session">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e23" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="session" target="choose">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e24" value="Create Account" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="choose" target="register">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e25" value="Log In" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="choose" target="login">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="register" target="valid">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="login" target="valid">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e28" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="valid" target="request">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="request" target="success">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e30" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="success" target="store">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="store" target="end">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="p2" name="02 Home and Profile">
+    <mxGraphModel dx="1100" dy="1700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Module 2 | Home, Profile and Settings" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;fillColor=#16316B;strokeColor=#16316B;fontColor=#FFFFFF;fontSize=23;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="25" width="1020" height="64" />
+        </mxCell>
+        <mxCell id="subtitle" value="Home is the navigation hub. Profile uses the signed-in account. Settings describes local-first storage and automatic best-effort backup." style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;fillColor=#F3F5F8;strokeColor=#CBD5E1;fontColor=#475569;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="94" width="1020" height="52" />
+        </mxCell>
+        <mxCell id="start" value="START: Authenticated user opens Home" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="180" width="270" height="72" />
+        </mxCell>
+        <mxCell id="restore" value="Load recent plans and local&#10;recovery for this account" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;shape=cylinder;fillColor=#F2F0FF;strokeColor=#6B5BA6;fontColor=#41366B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="310" width="270" height="90" />
+        </mxCell>
+        <mxCell id="resume" value="Unfinished lesson available?" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rhombus;fillColor=#FFF1CD;strokeColor=#B7790A;fontColor=#5C4200;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="470" width="270" height="110" />
+        </mxCell>
+        <mxCell id="continue" value="Continue lesson&#10;Restore content, step and selected template" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="490" width="270" height="100" />
+        </mxCell>
+        <mxCell id="e8" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="resume" target="continue">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="restorestep" value="Open saved Setup / Activities /&#10;Editor / Review step" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="660" width="270" height="90" />
+        </mxCell>
+        <mxCell id="e10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="continue" target="restorestep">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="action" value="Choose Home action" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rhombus;fillColor=#FFF1CD;strokeColor=#B7790A;fontColor=#5C4200;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="680" width="270" height="110" />
+        </mxCell>
+        <mxCell id="new" value="Create Lesson Plan&#10;Go to Module 3" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="900" width="270" height="72" />
+        </mxCell>
+        <mxCell id="plans" value="My Plans / Search / Categories&#10;Go to Module 5" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="900" width="270" height="90" />
+        </mxCell>
+        <mxCell id="profile" value="Profile: view name, email, school&#10;and grade information when available" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="790" y="900" width="270" height="100" />
+        </mxCell>
+        <mxCell id="settings" value="Settings: storage and backup&#10;information; app version" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="790" y="1080" width="270" height="72" />
+        </mxCell>
+        <mxCell id="templates" value="Upload / map / select PDF template&#10;Then open Setup / Module 3" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="1080" width="270" height="100" />
+        </mxCell>
+        <mxCell id="logout" value="Sign out?&#10;Clear session and return to Login" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="790" y="1260" width="270" height="100" />
+        </mxCell>
+        <mxCell id="e18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="start" target="restore">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="restore" target="resume">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e20" value="No / choose another action" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="resume" target="action">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e21" value="Create" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="action" target="new">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e22" value="Find plans" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="action" target="plans">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e23" value="Profile" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="action" target="profile">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e24" value="Template" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="action" target="templates">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e25" value="Settings" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="profile" target="settings">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e26" value="Sign out" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="profile" target="logout">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e27" value="Return" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="settings" target="action">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="progress-note" value="Starting another lesson preserves unfinished content as a draft in My Plans. Administrators also have Manage users access. Profile editing and durable cloud retry are not represented as completed features." style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;fillColor=#F3F5F8;strokeColor=#CBD5E1;fontColor=#475569;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="1450" width="1020" height="105" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="p3" name="03 Lesson Setup">
+    <mxGraphModel dx="1100" dy="1700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Module 3 | Grade-Based Lesson Setup" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;fillColor=#16316B;strokeColor=#16316B;fontColor=#FFFFFF;fontSize=23;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="25" width="1020" height="64" />
+        </mxCell>
+        <mxCell id="subtitle" value="Grade selection drives learning-area options. Existing teaching content is preserved when grade or learning area changes." style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;fillColor=#F3F5F8;strokeColor=#CBD5E1;fontColor=#475569;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="94" width="1020" height="52" />
+        </mxCell>
+        <mxCell id="start" value="START: New, resumed, or template-based lesson" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="170" width="270" height="90" />
+        </mxCell>
+        <mxCell id="grade" value="Select grade level&#10;Then show mapped learning areas" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;shape=parallelogram;perimeter=parallelogramPerimeter;fillColor=#F0F5FF;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="310" width="270" height="90" />
+        </mxCell>
+        <mxCell id="invalid" value="Changing grade makes&#10;current subject invalid?" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rhombus;fillColor=#FFF1CD;strokeColor=#B7790A;fontColor=#5C4200;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="470" width="270" height="110" />
+        </mxCell>
+        <mxCell id="confirm" value="Show grade-change confirmation&#10;Keep previous grade or change?" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rhombus;fillColor=#FFF1CD;strokeColor=#B7790A;fontColor=#5C4200;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="790" y="490" width="270" height="130" />
+        </mxCell>
+        <mxCell id="clear" value="Confirm: change grade and&#10;clear only invalid subject" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="790" y="710" width="270" height="90" />
+        </mxCell>
+        <mxCell id="subject" value="Choose learning area&#10;Enter term, week, topic and competencies" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;shape=parallelogram;perimeter=parallelogramPerimeter;fillColor=#F0F5FF;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="710" width="270" height="100" />
+        </mxCell>
+        <mxCell id="review" value="Existing teaching content&#10;needs alignment review?" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rhombus;fillColor=#FFF1CD;strokeColor=#B7790A;fontColor=#5C4200;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="900" width="270" height="110" />
+        </mxCell>
+        <mxCell id="keep" value="Keep competencies, objectives,&#10;activities and notes. Review and acknowledge." style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="910" width="270" height="120" />
+        </mxCell>
+        <mxCell id="details" value="Optional teacher and class details&#10;Select ILAW / Detailed / Semi-Detailed" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;shape=parallelogram;perimeter=parallelogramPerimeter;fillColor=#F0F5FF;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="1090" width="270" height="100" />
+        </mxCell>
+        <mxCell id="valid" value="Required setup fields valid&#10;and alignment reviewed?" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rhombus;fillColor=#FFF1CD;strokeColor=#B7790A;fontColor=#5C4200;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="1270" width="270" height="110" />
+        </mxCell>
+        <mxCell id="fix" value="Show errors / correct fields" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="790" y="1290" width="270" height="72" />
+        </mxCell>
+        <mxCell id="end" value="Continue to Module 4&#10;Objectives and Activities" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="1450" width="270" height="90" />
+        </mxCell>
+        <mxCell id="e16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="start" target="grade">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="grade" target="invalid">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e18" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="invalid" target="confirm">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e19" value="Keep previous" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="confirm" target="grade">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e20" value="Change" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="confirm" target="clear">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="clear" target="subject">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e22" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="invalid" target="subject">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="subject" target="review">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e24" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="review" target="keep">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e25" value="Acknowledged" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="keep" target="details">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e26" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="review" target="details">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="details" target="valid">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e28" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="valid" target="fix">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e29" value="Correct" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="fix" target="subject">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e30" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="valid" target="end">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="pdf" value="Optional: upload text-based curriculum PDF&#10;Review extracted competencies&#10;Internet and backend required" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;fillColor=#F3F5F8;strokeColor=#CBD5E1;fontColor=#475569;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="550" width="270" height="120" />
+        </mxCell>
+        <mxCell id="e32" value="Use reviewed text" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="pdf" target="subject">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="p4" name="04 Activities and Editor">
+    <mxGraphModel dx="1100" dy="1700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Module 4 | Activities and Focused Editor" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;fillColor=#16316B;strokeColor=#16316B;fontColor=#FFFFFF;fontSize=23;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="25" width="1020" height="64" />
+        </mxCell>
+        <mxCell id="subtitle" value="Rule-based activity suggestions are separate from optional AI suggestions. AI output never replaces teacher content until accepted." style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;fillColor=#F3F5F8;strokeColor=#CBD5E1;fontColor=#475569;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="94" width="1020" height="52" />
+        </mxCell>
+        <mxCell id="start" value="START: Setup completed" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="170" width="270" height="72" />
+        </mxCell>
+        <mxCell id="objectives" value="Enter title and learning objectives" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;shape=parallelogram;perimeter=parallelogramPerimeter;fillColor=#F0F5FF;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="290" width="270" height="72" />
+        </mxCell>
+        <mxCell id="activities" value="Suggest or add classroom activities&#10;Accept, edit, remove or replace activities" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="410" width="270" height="100" />
+        </mxCell>
+        <mxCell id="valid" value="Title, objectives and&#10;at least one activity present?" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rhombus;fillColor=#FFF1CD;strokeColor=#B7790A;fontColor=#5C4200;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="580" width="270" height="110" />
+        </mxCell>
+        <mxCell id="fix" value="Show validation error&#10;Correct objectives or activities" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="600" width="270" height="72" />
+        </mxCell>
+        <mxCell id="e9" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="valid" target="fix">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e10" value="Retry" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="fix" target="objectives">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="editor" value="Open focused editor&#10;Expand one section at a time" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="770" width="270" height="90" />
+        </mxCell>
+        <mxCell id="ai" value="Use AI for this section?" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rhombus;fillColor=#FFF1CD;strokeColor=#B7790A;fontColor=#5C4200;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="930" width="270" height="110" />
+        </mxCell>
+        <mxCell id="generate" value="Request suggestion from backend&#10;Internet / configured AI required" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="790" y="930" width="270" height="90" />
+        </mxCell>
+        <mxCell id="review" value="Review current text vs suggestion&#10;Accept or Keep original?" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rhombus;fillColor=#FFF1CD;strokeColor=#B7790A;fontColor=#5C4200;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="790" y="1100" width="270" height="130" />
+        </mxCell>
+        <mxCell id="accept" value="Accept changes only this section&#10;Undo available before later manual edits" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="790" y="1320" width="270" height="100" />
+        </mxCell>
+        <mxCell id="write" value="Write / edit teacher content&#10;Required lesson sections checked" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="1150" width="270" height="100" />
+        </mxCell>
+        <mxCell id="complete" value="Required lesson content complete?" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rhombus;fillColor=#FFF1CD;strokeColor=#B7790A;fontColor=#5C4200;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="1330" width="270" height="110" />
+        </mxCell>
+        <mxCell id="end" value="Continue to Module 6: Review" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="1510" width="270" height="72" />
+        </mxCell>
+        <mxCell id="e19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="start" target="objectives">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="objectives" target="activities">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="activities" target="valid">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e22" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="valid" target="editor">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="editor" target="ai">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e24" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="ai" target="generate">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e25" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="ai" target="write">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e26" value="Success" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="generate" target="review">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e27" value="Accept" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="review" target="accept">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e28" value="Keep original" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="review" target="write">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e29" value="Continue editing" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="accept" target="write">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="write" target="complete">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e31" value="No: correct sections" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="complete" target="editor">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e32" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="complete" target="end">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="autosave" value="AUTOSAVE: changes are saved locally.&#10;Save &amp; exit returns to Home after saving.&#10;Storage failure shows Retry.&#10;AI failure keeps current teacher text." style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;fillColor=#F3F5F8;strokeColor=#CBD5E1;fontColor=#475569;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="1020" width="270" height="150" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="p5" name="05 My Plans">
+    <mxGraphModel dx="1100" dy="1700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Module 5 | Saved-Plan Management" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;fillColor=#16316B;strokeColor=#16316B;fontColor=#FFFFFF;fontSize=23;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="25" width="1020" height="64" />
+        </mxCell>
+        <mxCell id="subtitle" value="My Plans reads locally saved plans. Search, grade/subject/category filters, status tabs, and sorting organize the library." style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;fillColor=#F3F5F8;strokeColor=#CBD5E1;fontColor=#475569;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="94" width="1020" height="52" />
+        </mxCell>
+        <mxCell id="start" value="START: Open My Plans" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="180" width="270" height="72" />
+        </mxCell>
+        <mxCell id="list" value="Load saved plans for signed-in account" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;shape=cylinder;fillColor=#F2F0FF;strokeColor=#6B5BA6;fontColor=#41366B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="310" width="270" height="90" />
+        </mxCell>
+        <mxCell id="filter" value="Search / filter / sort lesson plans" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;shape=parallelogram;perimeter=parallelogramPerimeter;fillColor=#F0F5FF;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="470" width="270" height="72" />
+        </mxCell>
+        <mxCell id="select" value="Select plan action" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rhombus;fillColor=#FFF1CD;strokeColor=#B7790A;fontColor=#5C4200;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="620" width="270" height="110" />
+        </mxCell>
+        <mxCell id="view" value="View saved lesson&#10;PDF export available" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="820" width="270" height="90" />
+        </mxCell>
+        <mxCell id="export" value="Export via Module 6" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="1000" width="270" height="72" />
+        </mxCell>
+        <mxCell id="edit" value="Edit plan&#10;Preserve other unfinished work" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="820" width="270" height="90" />
+        </mxCell>
+        <mxCell id="editor" value="Open focused editor / Module 4" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="1000" width="270" height="72" />
+        </mxCell>
+        <mxCell id="delete" value="Confirm deletion?" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rhombus;fillColor=#FFF1CD;strokeColor=#B7790A;fontColor=#5C4200;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="790" y="820" width="270" height="110" />
+        </mxCell>
+        <mxCell id="remove" value="Delete local plan&#10;Try cloud deletion if available" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="790" y="1020" width="270" height="100" />
+        </mxCell>
+        <mxCell id="refresh" value="Refresh library / return to My Plans" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="1220" width="270" height="90" />
+        </mxCell>
+        <mxCell id="e15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="start" target="list">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="list" target="filter">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="filter" target="select">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e18" value="View" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="select" target="view">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e19" value="Edit" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="select" target="edit">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e20" value="Delete" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="select" target="delete">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e21" value="Export" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="view" target="export">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e22" value="Back" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="view" target="refresh">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="edit" target="editor">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e24" value="Confirm" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="delete" target="remove">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e25" value="Cancel" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="delete" target="refresh">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="remove" target="refresh">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="progress-note" value="Legacy subject names remain available through actual saved-plan filters. Empty results show guidance. Cloud deletion is best-effort and must not be shown as guaranteed synchronization." style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;fillColor=#F3F5F8;strokeColor=#CBD5E1;fontColor=#475569;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="1430" width="1020" height="105" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="p6" name="06 Review and PDF">
+    <mxGraphModel dx="1100" dy="1700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Module 6 | Review, Save and PDF Export" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;fillColor=#16316B;strokeColor=#16316B;fontColor=#FFFFFF;fontSize=23;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="25" width="1020" height="64" />
+        </mxCell>
+        <mxCell id="subtitle" value="The default export uses the Classic School A4 layout. Uploaded-template export is a separate option when a template is selected." style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;fillColor=#F3F5F8;strokeColor=#CBD5E1;fontColor=#475569;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="94" width="1020" height="52" />
+        </mxCell>
+        <mxCell id="start" value="START: Review the lesson plan" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="170" width="270" height="72" />
+        </mxCell>
+        <mxCell id="action" value="Choose save or export action" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rhombus;fillColor=#FFF1CD;strokeColor=#B7790A;fontColor=#5C4200;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="310" width="270" height="110" />
+        </mxCell>
+        <mxCell id="draft" value="Save as Draft&#10;Incomplete content is allowed" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="490" width="270" height="90" />
+        </mxCell>
+        <mxCell id="storedraft" value="Save locally; clear recovery&#10;Try best-effort cloud backup" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;shape=cylinder;fillColor=#F2F0FF;strokeColor=#6B5BA6;fontColor=#41366B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="670" width="270" height="100" />
+        </mxCell>
+        <mxCell id="library" value="Return to My Plans" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="850" width="270" height="72" />
+        </mxCell>
+        <mxCell id="valid" value="Required content complete&#10;and alignment reviewed?" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rhombus;fillColor=#FFF1CD;strokeColor=#B7790A;fontColor=#5C4200;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="510" width="270" height="110" />
+        </mxCell>
+        <mxCell id="fix" value="Show error; return to Setup / Editor&#10;Keep draft content" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=0;fillColor=#E8EEFB;strokeColor=#16316B;fontColor=#16316B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="790" y="520" width="270" height="100" />
+        </mxCell>
+        <mxCell id="e11" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="valid" target="fix">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="save" value="Save completed plan locally&#10;Clear recovery snapshot" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;shape=cylinder;fillColor=#F2F0FF;strokeColor=#6B5BA6;fontColor=#41366B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="730" width="270" height="100" />
+        </mxCell>
+        <mxCell id="export" value="Export requested?" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rhombus;fillColor=#FFF1CD;strokeColor=#B7790A;fontColor=#5C4200;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="920" width="270" height="110" />
+        </mxCell>
+        <mxCell id="done" value="Save as Completed&#10;Return to My Plans" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="940" width="270" height="90" />
+        </mxCell>
+        <mxCell id="kind" value="Export type?" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rhombus;fillColor=#FFF1CD;strokeColor=#B7790A;fontColor=#5C4200;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="1100" width="270" height="110" />
+        </mxCell>
+        <mxCell id="classic" value="Create Classic School A4 PDF&#10;Borders, continuation rows, page numbers" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;shape=document;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="1270" width="270" height="100" />
+        </mxCell>
+        <mxCell id="template" value="Fill uploaded PDF template&#10;If selected and mapping fits" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;shape=document;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="790" y="1270" width="270" height="100" />
+        </mxCell>
+        <mxCell id="share" value="Download / native share sheet&#10;Cloud archive failure does not block download" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;arcSize=50;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#18551B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="415" y="1470" width="270" height="100" />
+        </mxCell>
+        <mxCell id="e19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="start" target="action">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e20" value="Draft" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="action" target="draft">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="draft" target="storedraft">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="storedraft" target="library">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e23" value="Complete / Export" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="action" target="valid">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e24" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="valid" target="save">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="save" target="export">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e26" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="export" target="done">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e27" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="export" target="kind">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e28" value="Default PDF" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="kind" target="classic">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e29" value="Selected template" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="kind" target="template">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="classic" target="share">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="template" target="share">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="cloud" value="Optional cloud backup / PDF archive&#10;Requires connection and backend.&#10;Failure is reported; local copy remains." style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=15;align=center;verticalAlign=middle;spacing=10;strokeWidth=1.5;rounded=1;fillColor=#F3F5F8;strokeColor=#CBD5E1;fontColor=#475569;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="790" y="800" width="270" height="130" />
+        </mxCell>
+        <mxCell id="e33" value="Best-effort" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#16316B;strokeWidth=1.5;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="save" target="cloud">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

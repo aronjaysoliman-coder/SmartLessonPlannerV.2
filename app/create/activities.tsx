@@ -8,6 +8,7 @@ import { ErrorBanner, PrimaryButton, ScreenHeader, TextField } from '@/component
 import { suggestActivities } from '@/lib/activityBank';
 import { useDraft } from '@/lib/draft';
 import { colors, fontSize, radius, spacing } from '@/lib/theme';
+import { DraftProgress } from '@/components/lesson/draft-progress';
 import { LessonActivity } from '@/lib/types';
 
 /**
@@ -18,8 +19,10 @@ import { LessonActivity } from '@/lib/types';
 export default function ActivitiesScreen() {
   const router = useRouter();
   const { draft, setDraft } = useDraft();
-  const [lessonTitle, setLessonTitle] = useState(draft.lessonTitle);
-  const [objectives, setObjectives] = useState<string[]>(draft.objectives.length ? draft.objectives : ['']);
+  const lessonTitle = draft.lessonTitle;
+  const setLessonTitle = (value: string) => setDraft((current) => ({ ...current, lessonTitle: value }));
+  const objectives = draft.objectives.length ? draft.objectives : [''];
+  const setObjectives = (action: React.SetStateAction<string[]>) => setDraft((current) => ({ ...current, objectives: typeof action === 'function' ? action(current.objectives.length ? current.objectives : ['']) : action }));
   const [error, setError] = useState('');
 
   function updateObjective(i: number, value: string) {
@@ -100,6 +103,7 @@ export default function ActivitiesScreen() {
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>
       <ScreenHeader title="Create Lesson Plan" onBack={() => router.back()} />
+      <DraftProgress step="activities" />
       <ScrollView contentContainerStyle={{ padding: spacing.lg }} keyboardShouldPersistTaps="handled">
         <Text style={styles.stepLabel}>Step 2 of 4 — Objectives &amp; Activities</Text>
         <ErrorBanner message={error} />

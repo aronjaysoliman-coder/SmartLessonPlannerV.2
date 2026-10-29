@@ -65,6 +65,7 @@ export function TextField({
         </View>
       ) : (
         <TextInput
+          accessibilityLabel={label}
           style={[styles.input, error && styles.inputError, style]}
           placeholderTextColor={colors.muted}
           {...props}
@@ -83,6 +84,7 @@ export function SelectField({
   onSelect,
   error,
   optional,
+  disabled = false,
 }: {
   label: string;
   value: string;
@@ -91,6 +93,7 @@ export function SelectField({
   onSelect: (v: string) => void;
   error?: string;
   optional?: boolean;
+  disabled?: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const grouped = options.length > 0 && typeof options[0] !== "string";
@@ -112,8 +115,12 @@ export function SelectField({
         )}
       </Text>
       <TouchableOpacity
-        style={[styles.input, styles.selectBox, error && styles.inputError]}
-        onPress={() => setOpen(true)}
+        accessibilityRole="button"
+        accessibilityLabel={label}
+        accessibilityState={{ disabled, expanded: open }}
+        disabled={disabled}
+        style={[styles.input, styles.selectBox, error && styles.inputError, disabled && { backgroundColor: colors.border, opacity: 0.65 }]}
+        onPress={() => { if (!disabled) setOpen(true); }}
       >
         <Text style={value ? styles.selectValue : styles.selectPlaceholder}>
           {value || placeholder}
@@ -122,7 +129,7 @@ export function SelectField({
       </TouchableOpacity>
       {!!error && <Text style={styles.errorText}>{error}</Text>}
       <Modal
-        visible={open}
+        visible={open && !disabled}
         transparent
         animationType="fade"
         onRequestClose={() => setOpen(false)}
@@ -186,6 +193,9 @@ export function PrimaryButton({
 }) {
   return (
     <TouchableOpacity
+      accessibilityRole="button"
+      accessibilityLabel={title}
+      accessibilityState={{ disabled: !!(disabled || loading), busy: !!loading }}
       onPress={onPress}
       disabled={disabled || loading}
       style={[

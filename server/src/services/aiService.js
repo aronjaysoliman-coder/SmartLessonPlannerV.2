@@ -14,11 +14,17 @@ function getClient() {
   return client;
 }
 
+const SECTION_FIELDS = ['subjectMatter', 'learningResources', 'procedure', 'assessment', 'assignment', 'additionalNotes', 'ilaw.contentStandard', 'ilaw.performanceStandard', 'ilaw.preLesson', 'ilaw.flow', 'ilaw.integration', 'ilaw.extendedLearning'];
+
+function isValidSection(section, planType) {
+  return SECTION_FIELDS.includes(section) && (section.startsWith('ilaw.') ? planType === 'ILAW' : section !== 'procedure' || planType !== 'ILAW');
+}
+
 function buildPrompt(payload) {
   const { planType, gradeLevel, subject, topic, learningCompetencies, objectives, activityTitles } = payload;
   const isIlaw = planType === 'ILAW';
 
-  const schema = isIlaw
+  const schema = payload.section ? '{"suggestion":""}' : isIlaw
     ? '{"subjectMatter":"","learningResources":"","assessment":"","assignment":"","additionalNotes":"","ilaw":{"contentStandard":"","performanceStandard":"","preLesson":"","flow":"","integration":"","extendedLearning":""}}'
     : '{"subjectMatter":"","learningResources":"","procedure":"","assessment":"","assignment":"","additionalNotes":""}';
 
@@ -32,7 +38,7 @@ function buildPrompt(payload) {
   const system = [
     'You are a Philippine K-12 curriculum expert helping a teacher draft a lesson plan.',
     'Return ONLY a single valid JSON object matching the schema below. No markdown, no backticks, no commentary before or after.',
-    depth,
+    payload.section ? `Generate ONLY the ${payload.section} section. Do not write any other lesson sections. ${['procedure', 'ilaw.flow'].includes(payload.section) ? depth : ''}` : depth,
     `Schema: ${schema}`,
     'Keep every field concise (2-5 sentences), classroom-appropriate, and specific to the given topic and competencies.',
     'Do not invent competency codes. Do not repeat the raw input verbatim — synthesize it into teaching content.',
@@ -63,7 +69,8 @@ function safeParseJson(raw) {
   return JSON.parse(text);
 }
 
-async function generateLessonDraft(payload) {
+async function generateLessonDraft(payload, { signal } = {}) {
+  if (payload.section && !isValidSection(payload.section, payload.planType)) throw new Error('Invalid suggestion section.');
   const { system, user } = buildPrompt(payload);
   const isReasoningModel = /reasoning/i.test(process.env.NVIDIA_MODEL || '');
 
@@ -76,11 +83,11 @@ async function generateLessonDraft(payload) {
     temperature: 0.4,
     // Reasoning models spend part of this budget on their hidden thinking
     // trace before writing the real answer, so give them a lot more room.
-    max_tokens: isReasoningModel ? 4000 : 1200,
+    max_tokens: payload.section ? (isReasoningModel ? 2600 : 650) : (isReasoningModel ? 4000 : 1200),
     ...(isReasoningModel ? { reasoning_budget: 2000 } : {}),
   };
 
-  const completion = await getClient().chat.completions.create(request);
+  const completion = await getClient().chat.completions.create(request, { signal, timeout: 40000, maxRetries: 0 });
 
   const raw = completion.choices?.[0]?.message?.content || '';
   if (!raw.trim()) {
@@ -90,7 +97,9 @@ async function generateLessonDraft(payload) {
         : 'The model returned an empty response.'
     );
   }
-  return safeParseJson(raw);
+  const result = safeParseJson(raw);
+  if (payload.section && (typeof result.suggestion !== 'string' || !result.suggestion.trim())) throw new Error('The model returned an invalid section suggestion.');
+  return payload.section ? { suggestion: result.suggestion.trim() } : result;
 }
 
 async function extractLearningCompetencies({ text, gradeLevel, subject }) {
@@ -124,4 +133,4 @@ async function extractLearningCompetencies({ text, gradeLevel, subject }) {
   return result.learningCompetencies;
 }
 
-module.exports = { generateLessonDraft, extractLearningCompetencies };
+module.exports = { generateLessonDraft, extractLearningCompetencies, buildPrompt, isValidSection };

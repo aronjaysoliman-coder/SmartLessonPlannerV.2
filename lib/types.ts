@@ -84,6 +84,8 @@ export interface LessonPlanCore {
   // Setup (Module 3)
   gradeLevel: string;
   subject: string;
+  /** Requires teacher review after changing the grade or learning area. */
+  learningAreaReviewRequired?: boolean;
   term: string;
   week: string;
   learningCompetencies: string;
@@ -158,6 +160,7 @@ export function createEmptyLessonPlan(
     status: "draft",
     gradeLevel: "",
     subject: "",
+    learningAreaReviewRequired: false,
     term: "",
     week: "",
     learningCompetencies: "",

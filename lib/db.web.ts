@@ -25,7 +25,7 @@ export interface LessonTemplateSummary {
 }
 
 const DATABASE_NAME = 'lesson_planner_web';
-const DATABASE_VERSION = 1;
+const DATABASE_VERSION = 2;
 const PLAN_STORE = 'lesson_plans';
 const TEMPLATE_STORE = 'lesson_templates';
 
@@ -39,8 +39,9 @@ function getDatabase(): Promise<IDBDatabase> {
 
       request.onupgradeneeded = () => {
         const database = request.result;
-        database.createObjectStore(PLAN_STORE, { keyPath: 'id' });
-        database.createObjectStore(TEMPLATE_STORE, { keyPath: 'id' });
+        if (!database.objectStoreNames.contains(PLAN_STORE)) database.createObjectStore(PLAN_STORE, { keyPath: 'id' });
+        if (!database.objectStoreNames.contains(TEMPLATE_STORE)) database.createObjectStore(TEMPLATE_STORE, { keyPath: 'id' });
+        if (!database.objectStoreNames.contains('draft_recovery')) database.createObjectStore('draft_recovery', { keyPath: 'ownerId' });
       };
       request.onsuccess = () => resolve(request.result);
       request.onerror = () => reject(request.error ?? new Error('Could not open browser storage.'));
@@ -165,4 +166,15 @@ export async function listCategories(ownerId: string): Promise<string[]> {
   return [...new Set(plans
     .filter((plan) => plan.ownerId === ownerId && Boolean(plan.category))
     .map((plan) => plan.category))];
+}
+
+export async function readDraftRecovery(ownerId: string): Promise<string | null> {
+  const row = await runTransaction<{ ownerId: string; snapshot: string } | undefined>('draft_recovery', 'readonly', (store) => store.get(ownerId));
+  return row?.snapshot ?? null;
+}
+export async function writeDraftRecovery(ownerId: string, snapshot: string): Promise<void> {
+  await runTransaction('draft_recovery', 'readwrite', (store) => store.put({ ownerId, snapshot }));
+}
+export async function removeDraftRecovery(ownerId: string): Promise<void> {
+  await runTransaction('draft_recovery', 'readwrite', (store) => store.delete(ownerId));
 }

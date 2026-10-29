@@ -1,3 +1,4 @@
+import { isLearningAreaAllowed } from './learning-areas';
 import { LessonPlanCore } from './types';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -44,10 +45,13 @@ export function validateSetup(data: {
   week: string;
   learningCompetencies: string;
   planType: string;
+  learningAreaReviewRequired?: boolean;
 }): FieldErrors {
   const errors: FieldErrors = {};
   if (!data.gradeLevel) errors.gradeLevel = 'Select a grade level.';
   if (!data.subject) errors.subject = 'Select a learning area / subject.';
+  else if (data.gradeLevel && !isLearningAreaAllowed(data.gradeLevel, data.subject)) errors.subject = 'Choose a learning area from the selected grade’s list.';
+  if (data.learningAreaReviewRequired) errors.learningAreaReviewRequired = 'Review your retained lesson content and confirm it matches the selected grade and learning area.';
   if (!data.term) errors.term = 'Select a term.';
   if (!data.week) errors.week = 'Select a week.';
   if (!data.learningCompetencies.trim()) {
@@ -60,6 +64,7 @@ export function validateSetup(data: {
 /** Module 6.5: validate a lesson plan before Preview / Export / Save-as-completed. */
 export function validateForCompletion(plan: LessonPlanCore): FieldErrors {
   const errors: FieldErrors = {};
+  if (plan.learningAreaReviewRequired) errors.learningAreaReviewRequired = 'Return to Setup and review your retained lesson content for the selected grade and learning area.';
   if (!plan.lessonTitle.trim()) errors.lessonTitle = 'Lesson title is required.';
   if (!plan.subjectMatter.trim()) errors.subjectMatter = 'Subject matter is required.';
   if (plan.objectives.filter((o) => o.trim()).length === 0) {

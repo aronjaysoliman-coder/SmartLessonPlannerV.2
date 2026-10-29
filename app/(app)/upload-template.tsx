@@ -171,7 +171,7 @@ export default function UploadTemplateScreen() {
 
   async function selectTemplate(id: string) {
     if (!profile) return;
-    resetDraft(profile.uid);
+    try { await resetDraft(profile.uid); } catch { setError('Could not preserve your unfinished lesson. Please try again.'); return; }
     setDraft((current) => ({ ...current, gradeLevel: selectedGradeLevel }));
     setTemplateId(id);
     router.push('/create/setup');

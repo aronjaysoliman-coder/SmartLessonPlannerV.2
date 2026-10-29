@@ -56,6 +56,10 @@ function getDb(): Promise<SQLite.SQLiteDatabase> {
           createdAt INTEGER, updatedAt INTEGER,
           syncedAt INTEGER
         );
+        CREATE TABLE IF NOT EXISTS draft_recovery (
+          ownerId TEXT PRIMARY KEY NOT NULL,
+          snapshot TEXT NOT NULL
+        );
         CREATE TABLE IF NOT EXISTS lesson_templates (
           id TEXT PRIMARY KEY NOT NULL,
           ownerId TEXT NOT NULL,
@@ -68,8 +72,12 @@ function getDb(): Promise<SQLite.SQLiteDatabase> {
         );
         CREATE INDEX IF NOT EXISTS idx_lesson_plans_owner ON lesson_plans(ownerId);
       `);
+      const columns = await db.getAllAsync<{ name: string }>('PRAGMA table_info(lesson_plans)');
+      if (!columns.some((column) => column.name === 'learningAreaReviewRequired')) {
+        await db.execAsync('ALTER TABLE lesson_plans ADD COLUMN learningAreaReviewRequired INTEGER NOT NULL DEFAULT 0');
+      }
       return db;
-    });
+    }).catch((error) => { dbPromise = null; throw error; });
   }
   return dbPromise;
 }
@@ -136,6 +144,7 @@ function toRow(plan: LessonPlanCore) {
     $status: plan.status,
     $gradeLevel: plan.gradeLevel,
     $subject: plan.subject,
+    $learningAreaReviewRequired: plan.learningAreaReviewRequired ? 1 : 0,
     $term: plan.term,
     $week: plan.week,
     $learningCompetencies: plan.learningCompetencies,
@@ -168,6 +177,7 @@ function fromRow(row: any): LessonPlanCore {
     status: row.status,
     gradeLevel: row.gradeLevel ?? '',
     subject: row.subject ?? '',
+    learningAreaReviewRequired: !!row.learningAreaReviewRequired,
     term: row.term ?? '',
     week: row.week ?? '',
     learningCompetencies: row.learningCompetencies ?? '',
@@ -198,18 +208,18 @@ export async function saveLessonPlan(plan: LessonPlanCore): Promise<void> {
   const r = toRow(plan);
   await db.runAsync(
     `INSERT INTO lesson_plans (
-      id, ownerId, status, gradeLevel, subject, term, week, learningCompetencies,
+      id, ownerId, status, gradeLevel, subject, learningAreaReviewRequired, term, week, learningCompetencies,
       teacherName, section, planType, lessonTitle, subjectMatter, learningResources,
       procedure, assessment, assignment, reflection, additionalNotes, category, folder,
       objectivesJson, activitiesJson, tagsJson, ilawJson, createdAt, updatedAt
     ) VALUES (
-      $id, $ownerId, $status, $gradeLevel, $subject, $term, $week, $learningCompetencies,
+      $id, $ownerId, $status, $gradeLevel, $subject, $learningAreaReviewRequired, $term, $week, $learningCompetencies,
       $teacherName, $section, $planType, $lessonTitle, $subjectMatter, $learningResources,
       $procedure, $assessment, $assignment, $reflection, $additionalNotes, $category, $folder,
       $objectivesJson, $activitiesJson, $tagsJson, $ilawJson, $createdAt, $updatedAt
     )
     ON CONFLICT(id) DO UPDATE SET
-      status=$status, gradeLevel=$gradeLevel, subject=$subject, term=$term, week=$week,
+      status=$status, gradeLevel=$gradeLevel, subject=$subject, learningAreaReviewRequired=$learningAreaReviewRequired, term=$term, week=$week,
       learningCompetencies=$learningCompetencies, teacherName=$teacherName, section=$section,
       planType=$planType, lessonTitle=$lessonTitle, subjectMatter=$subjectMatter,
       learningResources=$learningResources, procedure=$procedure, assessment=$assessment,
@@ -278,4 +288,19 @@ export async function listCategories(ownerId: string): Promise<string[]> {
     { $ownerId: ownerId }
   );
   return rows.map((r: any) => r.category);
+}
+
+/** Recovery snapshots are separate from explicitly saved lesson plans. */
+export async function readDraftRecovery(ownerId: string): Promise<string | null> {
+  const db = await getDb();
+  const row = await db.getFirstAsync<{ snapshot: string }>('SELECT snapshot FROM draft_recovery WHERE ownerId = ?', ownerId);
+  return row?.snapshot ?? null;
+}
+export async function writeDraftRecovery(ownerId: string, snapshot: string): Promise<void> {
+  const db = await getDb();
+  await db.runAsync('INSERT INTO draft_recovery (ownerId, snapshot) VALUES (?, ?) ON CONFLICT(ownerId) DO UPDATE SET snapshot=excluded.snapshot', ownerId, snapshot);
+}
+export async function removeDraftRecovery(ownerId: string): Promise<void> {
+  const db = await getDb();
+  await db.runAsync('DELETE FROM draft_recovery WHERE ownerId = ?', ownerId);
 }

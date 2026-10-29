@@ -1,3 +1,4 @@
+import { DraftProgress } from '@/components/lesson/draft-progress';
 import { Ionicons } from '@expo/vector-icons';
 import * as Crypto from 'expo-crypto';
 import { useRouter } from 'expo-router';
@@ -23,8 +24,9 @@ import { hasErrors, validateForCompletion } from '@/lib/validation';
 export default function PreviewScreen() {
   const router = useRouter();
   const { profile } = useAuth();
-  const { draft, setDraft, resetDraft, templateId } = useDraft();
-  const [category, setCategory] = useState(draft.category);
+  const { draft, setDraft, resetDraft, templateId, finishDraft } = useDraft();
+  const category = draft.category;
+  const setCategory = (value: string) => setDraft((current) => ({ ...current, category: value }));
   const [isSaving, setIsSaving] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
   const [error, setError] = useState('');
@@ -53,6 +55,7 @@ export default function PreviewScreen() {
       };
       await saveLessonPlan(finalPlan);
       setDraft(finalPlan);
+      await finishDraft();
       // Best-effort cloud backup — never blocks the local save (Module 6.4 offline access).
       syncLessonPlanToCloud(finalPlan).catch(() => {});
       setSavedMessage(status === 'completed' ? 'Lesson plan saved.' : 'Draft saved.');
@@ -135,14 +138,16 @@ export default function PreviewScreen() {
     }
   }
 
-  function startNewPlan() {
-    resetDraft(profile?.uid ?? 'local');
+  async function startNewPlan() {
+    try { await resetDraft(profile?.uid ?? 'local');
     router.replace('/create/setup');
+    } catch { setError('Could not preserve the current lesson. Please try again.'); }
   }
 
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>
       <ScreenHeader title="Preview" onBack={() => router.back()} />
+      <DraftProgress step="preview" />
       <ScrollView contentContainerStyle={{ padding: spacing.lg }}>
         <Text style={styles.stepLabel}>Step 4 of 4 — Preview, Save &amp; Export</Text>
         <ErrorBanner message={error} />
@@ -153,12 +158,13 @@ export default function PreviewScreen() {
           </View>
         )}
 
-        <TextField label="Category / Folder" placeholder="e.g. Quarter 1, Fractions Unit" value={category} onChangeText={setCategory} optional />
+        <TextField label="Category / Folder" placeholder="e.g. Quarter 1, Fractions Unit" value={category} onChangeText={setCategory} editable={!isSaving && !isExporting} optional />
 
         <View style={styles.previewCard}>
           <PlanPreview plan={draft} />
         </View>
 
+        <Text style={styles.pdfHint}>PDF format: Classic School layout · A4 portrait</Text>
         <PrimaryButton title={isExporting ? 'Preparing PDF…' : 'Export PDF & Share'} onPress={onExportAndShare} loading={isExporting} />
         {!!templateId && (
           <>
@@ -185,6 +191,7 @@ export default function PreviewScreen() {
 }
 
 const styles = StyleSheet.create({
+  pdfHint: { fontSize: 12, lineHeight: 18, color: colors.muted, textAlign: 'center', marginBottom: 10 },
   safe: { flex: 1, backgroundColor: colors.bg },
   stepLabel: { fontSize: fontSize.xs, color: colors.muted, fontWeight: '700', textTransform: 'uppercase', marginBottom: spacing.md },
   successBanner: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: colors.successBg, borderRadius: radius.sm, padding: spacing.sm, marginBottom: spacing.md },

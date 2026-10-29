@@ -1,3 +1,4 @@
+import { getLearningAreas } from '@/lib/learning-areas';
 import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
@@ -11,7 +12,7 @@ import { useAuth } from '@/lib/auth';
 import { deleteLessonPlan, listCategories, listLessonPlans } from '@/lib/db';
 import { useDraft } from '@/lib/draft';
 import { colors, fonts } from '@/lib/theme';
-import { GRADE_LEVEL_GROUPS, SUBJECT_OPTIONS, LessonPlanCore } from '@/lib/types';
+import { GRADE_LEVEL_GROUPS, LessonPlanCore } from '@/lib/types';
 
 type Picker = 'subject' | 'grade' | 'category' | 'sort';
 type Sort = 'recent' | 'oldest' | 'title';
@@ -76,7 +77,8 @@ export default function MyPlansScreen() {
       .sort((a, b) => sort === 'title' ? a.lessonTitle.localeCompare(b.lessonTitle) : sort === 'oldest' ? a.updatedAt - b.updatedAt : b.updatedAt - a.updatedAt);
   }, [plans, query, subject, grade, category, status, sort]);
 
-  const options = picker === 'subject' ? [{ value: '', label: 'All subjects' }, ...SUBJECT_OPTIONS.map((value) => ({ value, label: value }))]
+  const subjectChoices = [...new Set([...(grade ? getLearningAreas(grade) : GRADE_LEVEL_GROUPS.flatMap((group) => group.options).flatMap(getLearningAreas)), ...plans.filter((plan) => !grade || plan.gradeLevel === grade).map((plan) => plan.subject).filter(Boolean)])].sort();
+  const options = picker === 'subject' ? [{ value: '', label: 'All subjects' }, ...subjectChoices.map((value) => ({ value, label: value }))]
     : picker === 'grade' ? [{ value: '', label: 'All grade levels' }, ...GRADE_LEVEL_GROUPS.flatMap((g) => g.options).map((value) => ({ value, label: value }))]
     : picker === 'category' ? [{ value: '', label: 'All categories' }, ...categories.map((value) => ({ value, label: value }))] : SORT_OPTIONS;
   const selectedValue = picker === 'subject' ? subject : picker === 'grade' ? grade : picker === 'category' ? category : sort;
@@ -85,12 +87,15 @@ export default function MyPlansScreen() {
 
   function choose(value: string) {
     if (picker === 'subject') setSubject(value);
-    else if (picker === 'grade') setGrade(value);
+    else if (picker === 'grade') {
+      setGrade(value);
+      if (value && subject && !getLearningAreas(value).includes(subject) && !plans.some((plan) => plan.gradeLevel === value && plan.subject === subject)) setSubject('');
+    }
     else if (picker === 'category') setCategory(value);
     else setSort(value as Sort);
     setPicker(null);
   }
-  function create() { resetDraft(profile?.uid ?? 'local'); router.push('/create/setup'); }
+  async function create() { try { await resetDraft(profile?.uid ?? 'local'); router.push('/create/setup'); } catch { setError('Could not preserve your unfinished lesson. Please try again.'); } }
   function closeActions() { if (!deleting) { setSelectedPlan(null); setConfirmingDelete(false); } }
   async function remove() {
     if (!selectedPlan || deleting) return;

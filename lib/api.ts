@@ -190,6 +190,29 @@ export interface AiDraftRequest {
   activityTitles: string[];
 }
 
+export type AiSection = 'subjectMatter' | 'learningResources' | 'procedure' | 'assessment' | 'assignment' | 'additionalNotes' | `ilaw.${'contentStandard' | 'performanceStandard' | 'preLesson' | 'flow' | 'integration' | 'extendedLearning'}`;
+
+/** One section per request; abort also covers reading the response body. */
+export async function generateSectionSuggestion(payload: AiDraftRequest & { section: AiSection }, signal: AbortSignal): Promise<string> {
+  const controller = new AbortController();
+  let timedOut = false;
+  const cancel = () => controller.abort();
+  signal.addEventListener('abort', cancel, { once: true });
+  if (signal.aborted) cancel();
+  const timer = setTimeout(() => { timedOut = true; controller.abort(); }, 45000);
+  try {
+    const result = await apiFetch('/api/generate', { method: 'POST', body: JSON.stringify(payload), signal: controller.signal }) as { suggestion?: unknown };
+    if (typeof result.suggestion !== 'string' || !result.suggestion.trim()) throw new Error('The AI returned no suggestion for this section. Try again or write your own.');
+    return result.suggestion;
+  } catch (err) {
+    if (timedOut) throw Object.assign(new Error('AI suggestion took too long. Please try again or write this section manually.'), { status: 408 });
+    throw err;
+  } finally {
+    clearTimeout(timer);
+    signal.removeEventListener('abort', cancel);
+  }
+}
+
 export interface AiDraftResponse {
   subjectMatter: string;
   learningResources: string;
