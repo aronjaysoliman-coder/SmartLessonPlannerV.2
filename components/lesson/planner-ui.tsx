@@ -1,10 +1,13 @@
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
-import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+
+import { AccessibilityInfo, Animated, AppState, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useAuth } from '@/lib/auth';
 import { colors, fonts } from '@/lib/theme';
 import { LessonPlanCore } from '@/lib/types';
+
+type IoniconName = React.ComponentProps<typeof Ionicons>['name'];
 
 export function PlannerBrand() {
   const { profile } = useAuth();
@@ -23,7 +26,7 @@ export function PlannerBrand() {
   );
 }
 
-export function PlannerHero({ title, subtitle, home = false, onCreate }: { title: string; subtitle: string; home?: boolean; onCreate?: () => void }) {
+export function PlannerHero({ title, subtitle, home = false, onCreate, artIcon = home ? 'book' : 'documents' }: { title: string; subtitle: string; home?: boolean; onCreate?: () => void; artIcon?: IoniconName }) {
   const { profile } = useAuth();
   return (
     <View style={[s.hero, home && s.homeHero]}>
@@ -35,7 +38,7 @@ export function PlannerHero({ title, subtitle, home = false, onCreate }: { title
         </View>
         <View style={s.artwork} accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
           <View style={s.spark} />
-          <Ionicons name={home ? 'book' : 'documents'} size={home ? 67 : 53} color={colors.primaryLight} />
+          <Ionicons name={artIcon} size={home ? 67 : 53} color={colors.primaryLight} />
           <View style={s.ribbon} />
         </View>
       </View>
@@ -48,6 +51,58 @@ export function PlannerHero({ title, subtitle, home = false, onCreate }: { title
 
 export function StatusPill({ completed }: { completed: boolean }) {
   return <View style={[s.pill, completed ? s.done : s.draft]}><Text style={[s.pillText, { color: completed ? colors.successText : colors.warnText }]}>{completed ? 'Completed' : 'Draft'}</Text></View>;
+}
+
+export function useSkeletonOpacity() {
+  const opacity = useRef(new Animated.Value(1)).current;
+  // Start static until the device's motion preference has been resolved.
+  const [reduceMotion, setReduceMotion] = useState(true);
+  const [appActive, setAppActive] = useState(AppState.currentState === 'active');
+  useEffect(() => {
+    let active = true;
+    void AccessibilityInfo.isReduceMotionEnabled().then((enabled) => { if (active) setReduceMotion(enabled); }).catch(() => {});
+    const motion = AccessibilityInfo.addEventListener('reduceMotionChanged', setReduceMotion);
+    const state = AppState.addEventListener('change', (value) => setAppActive(value === 'active'));
+    return () => { active = false; motion.remove(); state.remove(); };
+  }, []);
+  useEffect(() => {
+    opacity.setValue(1);
+    if (reduceMotion || !appActive) return;
+    const pulse = Animated.loop(Animated.sequence([
+      Animated.timing(opacity, { toValue: 0.45, duration: 850, useNativeDriver: true, isInteraction: false }),
+      Animated.timing(opacity, { toValue: 1, duration: 850, useNativeDriver: true, isInteraction: false }),
+    ]));
+    pulse.start();
+    return () => { pulse.stop(); opacity.setValue(1); };
+  }, [appActive, opacity, reduceMotion]);
+  return opacity;
+}
+
+/** Same card geometry as LessonCard; only data-dependent content is replaced. */
+export function LessonCardSkeletons({ compact = false }: { compact?: boolean }) {
+  const opacity = useSkeletonOpacity();
+  return <View accessible accessibilityLabel="Loading lesson plans" accessibilityState={{ busy: true }} accessibilityLiveRegion="polite" pointerEvents="none">
+    <View accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
+      {Array.from({ length: compact ? 2 : 3 }, (_, index) => <View key={index} style={s.card}>
+        <Animated.View style={[s.cardTop, { opacity }]}>
+          <View style={s.cardOpen}>
+            <View style={[s.document, s.skeletonBone]} />
+            <View style={s.cardCopy}>
+              <View style={[s.skeletonBone, s.skeletonTitle, { width: index % 2 ? '86%' : '65%' }]} />
+              <View style={[s.skeletonBone, s.skeletonMetadata]} />
+              <View style={s.badges}>
+                {!compact && <View style={[s.skeletonBone, s.skeletonFormat]} />}
+                <View style={[s.skeletonBone, s.skeletonPill]} />
+              </View>
+              {!compact && <View style={[s.skeletonBone, s.skeletonDate]} />}
+            </View>
+          </View>
+          <View style={[s.skeletonBone, compact ? s.skeletonArrow : s.skeletonMenu]} />
+        </Animated.View>
+        {!compact && <View style={s.cardFooter}><Animated.View style={[s.skeletonBone, s.skeletonAction, { opacity }]} /><Animated.View style={[s.skeletonBone, s.skeletonArrow, { opacity }]} /></View>}
+      </View>)}
+    </View>
+  </View>;
 }
 
 export function LessonCard({ plan, compact = false, onOpen, onEdit, onMenu }: { plan: LessonPlanCore; compact?: boolean; onOpen: () => void; onEdit?: () => void; onMenu?: () => void }) {
@@ -88,6 +143,15 @@ export const plannerStyles = StyleSheet.create({
   error: { fontFamily: fonts.regular, color: colors.danger, lineHeight: 21, marginVertical: 12 },
 });
 const s = StyleSheet.create({
+  skeletonBone: { backgroundColor: '#E5EAF1', borderRadius: 5 },
+  skeletonTitle: { height: 16, marginTop: 4, marginBottom: 7 },
+  skeletonMetadata: { width: '80%', height: 11, marginTop: 3, marginBottom: 3 },
+  skeletonPill: { width: 74, height: 23, borderRadius: 20 },
+  skeletonFormat: { width: 88, height: 23, borderRadius: 20 },
+  skeletonDate: { width: '58%', height: 11, marginTop: 11, marginBottom: 3 },
+  skeletonArrow: { width: 8, height: 14 },
+  skeletonMenu: { width: 23, height: 9, margin: 10, alignSelf: 'flex-start' },
+  skeletonAction: { width: 100, height: 13 },
   brandRow: { flexDirection: 'row', alignItems: 'center', gap: 7, paddingVertical: 20 },
   logo: { width: 32, height: 34, alignItems: 'center', justifyContent: 'center' },
   bookmark: { position: 'absolute', width: 5, height: 14, backgroundColor: colors.accent, right: 6, top: 5, borderBottomLeftRadius: 3 },

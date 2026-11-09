@@ -36,6 +36,14 @@ locally.
 
 ## Project layout
 
+### Calendar
+
+The Calendar tab stores schedules locally (SQLite on mobile, IndexedDB on web), separately for each account. Select a day to add a title, date, 24-hour start/end times, optional saved lesson plan, notes, and a reminder. You can edit or delete schedules and open linked lessons. Overlapping schedules are rejected in the storage transaction; back-to-back lessons are allowed.
+
+Mobile reminders use local device notifications, with permission requested when a future reminder is saved. Edits, deletions, and account changes reconcile pending notifications. Notification failures do not undo saved schedules. Reopening the app retries reminder reconciliation. Browser schedules persist in that browser; browser background reminders and cross-device calendar syncing are not supported. Clearing browser/app data removes local schedules.
+
+After installing dependencies, rebuild your Android/iOS development app to include `expo-notifications` and its config plugin. A Metro reload cannot add a native module to an existing binary. Verify reminder delivery on a physical device with notification permission enabled; delivery also depends on device notification settings. Web builds do not send background notifications.
+
 ```
 app/                    Screens (Expo Router file-based routing)
   index.tsx             Splash screen

@@ -1,6 +1,7 @@
 import * as Crypto from 'expo-crypto';
 import React, { createContext, useContext, useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, AppState, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { AppState, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { WorkspaceSkeleton } from '@/components/lesson/workspace-skeleton';
 import { useAuth } from './auth';
 import { readDraftRecovery, removeDraftRecovery, saveLessonPlan, writeDraftRecovery } from './db';
 import { DraftStep, hasDraftContent, parseRecovery, RecoverySnapshot } from './draft-recovery';
@@ -144,7 +145,10 @@ export function DraftProvider({ children }: { children: React.ReactNode }) {
     return () => subscription.remove();
   }, []);
 
-  if (isLoading || loadedOwner !== ownerId) return <View style={styles.loading}>{loadError ? <><Text style={styles.message}>We could not restore your unfinished lesson. Your saved recovery data has been kept.</Text><TouchableOpacity accessibilityRole="button" style={styles.retry} onPress={() => setReload((value) => value + 1)}><Text style={styles.retryText}>Retry restoring draft</Text></TouchableOpacity></> : <><ActivityIndicator color={colors.primary} /><Text style={styles.message}>Restoring your workspace...</Text></>}</View>;
+  if (isLoading || loadedOwner !== ownerId) {
+    if (!loadError) return <WorkspaceSkeleton />;
+    return <View style={styles.loading}><Text style={styles.message}>We could not restore your unfinished lesson. Your saved recovery data has been kept.</Text><TouchableOpacity accessibilityRole="button" style={styles.retry} onPress={() => setReload((value) => value + 1)}><Text style={styles.retryText}>Retry restoring draft</Text></TouchableOpacity></View>;
+  }
   return <DraftContext.Provider value={{ draft, setDraft, templateId, setTemplateId, resetDraft, openDraft, step, setStep, recovery, saveState, retrySave: persist, finishDraft }}>{children}</DraftContext.Provider>;
 }
 export function useDraft(): DraftContextValue {

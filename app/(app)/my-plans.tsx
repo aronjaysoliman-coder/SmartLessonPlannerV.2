@@ -3,9 +3,9 @@ import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { ActivityIndicator, FlatList, Modal, Pressable, RefreshControl, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { FlatList, Modal, Pressable, RefreshControl, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { LessonCard, PlannerBrand, PlannerHero, plannerStyles as ui } from '@/components/lesson/planner-ui';
+import { LessonCard, LessonCardSkeletons, PlannerBrand, PlannerHero, plannerStyles as ui } from '@/components/lesson/planner-ui';
 import { EmptyState } from '@/components/ui/form-fields';
 import { deleteCloudLessonPlan } from '@/lib/api';
 import { useAuth } from '@/lib/auth';
@@ -134,11 +134,11 @@ export default function MyPlansScreen() {
             <TouchableOpacity accessibilityRole="button" style={s.categoryButton} onPress={() => setPicker('category')}><Ionicons name="folder-outline" size={16} color={colors.primary} /><Text style={s.categoryLabel}>{category || 'All categories'}</Text><Ionicons name="chevron-down" size={13} color={colors.primary} /></TouchableOpacity>
             {filtered && <TouchableOpacity accessibilityRole="button" style={s.resetButton} onPress={() => { setQuery(''); setSubject(''); setGrade(''); setCategory(''); setStatus('all'); }}><Text style={ui.link}>Clear filters</Text></TouchableOpacity>}
           </View>
-          <View style={ui.sectionRow}><Text accessibilityRole="header" style={ui.sectionTitle}>Your lesson plans ({visible.length})</Text><TouchableOpacity accessibilityRole="button" style={s.sortLabel} onPress={() => setPicker('sort')}><Text style={s.muted}>{sortLabel}</Text><Ionicons name="chevron-down" size={14} color={colors.muted} /></TouchableOpacity></View>
+          <View style={ui.sectionRow}><Text accessibilityRole="header" style={ui.sectionTitle}>Your lesson plans{!loading && ` (${visible.length})`}</Text><TouchableOpacity accessibilityRole="button" style={s.sortLabel} onPress={() => setPicker('sort')}><Text style={s.muted}>{sortLabel}</Text><Ionicons name="chevron-down" size={14} color={colors.muted} /></TouchableOpacity></View>
           {!!error && <Text accessibilityRole="alert" style={ui.error}>{error}</Text>}
         </View>}
         renderItem={({ item }) => <LessonCard plan={item} onOpen={() => router.push(`/plan/${item.id}` as never)} onEdit={() => router.push(`/plan/${item.id}?edit=1` as never)} onMenu={() => { setSelectedPlan(item); setConfirmingDelete(false); }} />}
-        ListEmptyComponent={loading ? <ActivityIndicator color={colors.primary} /> : !error ? <EmptyState icon="folder-open-outline" title={filtered ? 'No matching lesson plans' : 'Your lesson library starts here'} subtitle={filtered ? 'Try another search or clear your filters.' : 'Tap the + button to create your first lesson plan.'} /> : null}
+        ListEmptyComponent={loading ? <LessonCardSkeletons /> : !error ? <EmptyState icon="folder-open-outline" title={filtered ? 'No matching lesson plans' : 'Your lesson library starts here'} subtitle={filtered ? 'Try another search or clear your filters.' : 'Tap the + button to create your first lesson plan.'} /> : null}
       />
       <View style={s.fabContainer} pointerEvents="box-none"><TouchableOpacity accessibilityRole="button" accessibilityLabel="Create Lesson Plan" activeOpacity={0.8} style={s.fab} onPress={create}><Ionicons name="add" size={32} color={colors.primaryDark} /></TouchableOpacity></View>
 

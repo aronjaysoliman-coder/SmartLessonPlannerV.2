@@ -2,9 +2,9 @@ import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import React, { useCallback, useState } from 'react';
-import { ActivityIndicator, FlatList, Modal, RefreshControl, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, Modal, RefreshControl, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { LessonCard, PlannerBrand, PlannerHero, plannerStyles as ui } from '@/components/lesson/planner-ui';
+import { LessonCard, LessonCardSkeletons, PlannerBrand, PlannerHero, plannerStyles as ui } from '@/components/lesson/planner-ui';
 import { EmptyState } from '@/components/ui/form-fields';
 import { useAuth } from '@/lib/auth';
 import { listLessonPlans } from '@/lib/db';
@@ -111,7 +111,7 @@ export default function DashboardScreen() {
           {!!error && <Text accessibilityRole="alert" style={ui.error}>{error}</Text>}
         </View>}
         renderItem={({ item }) => <LessonCard compact plan={item} onOpen={() => router.push(`/plan/${item.id}` as never)} />}
-        ListEmptyComponent={loading ? <ActivityIndicator color={colors.primary} /> : !error ? <EmptyState icon="document-text-outline" title="No lesson plans yet" subtitle="Tap Create Lesson Plan above to make your first one." /> : null}
+        ListEmptyComponent={loading ? <LessonCardSkeletons compact /> : !error ? <EmptyState icon="document-text-outline" title="No lesson plans yet" subtitle="Tap Create Lesson Plan above to make your first one." /> : null}
       />
       <Modal
         visible={deleteConfirmationOpen}

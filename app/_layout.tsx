@@ -14,6 +14,7 @@ import { ActivityIndicator, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AuthProvider } from '@/lib/auth';
 import { DraftProvider } from '@/lib/draft';
+import { CalendarReminderSync } from '@/components/lesson/calendar-reminder-sync';
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -35,6 +36,7 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <AuthProvider>
+        <CalendarReminderSync />
         <DraftProvider>
           <StatusBar style="light" />
           <Stack screenOptions={{ headerShown: false }}>

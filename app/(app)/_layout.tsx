@@ -51,6 +51,7 @@ export default function AppLayout() {
           ),
         }}
       />
+      <Tabs.Screen name="calendar" options={{ title: 'Calendar', tabBarLabel: tabLabel('Calendar'), tabBarIcon: ({ color, size }) => <Ionicons name="calendar" size={size} color={color} /> }} />
       <Tabs.Screen
         name="profile"
         options={{
@@ -64,13 +65,7 @@ export default function AppLayout() {
       <Tabs.Screen name="upload-template" options={{ href: null }} />
       <Tabs.Screen
         name="settings"
-        options={{
-          title: "Settings",
-          tabBarLabel: tabLabel("Settings"),
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="settings" size={size} color={color} />
-          ),
-        }}
+        options={{ href: null }}
       />
       <Tabs.Screen name="admin" options={{ href: null }} />
     </Tabs>
