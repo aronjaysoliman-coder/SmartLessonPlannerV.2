@@ -55,7 +55,7 @@
       "eas": {
         "projectId": "0fccc1f8-498d-4c5a-b5bc-ab54ecf87e5b"
       },
-      "apiUrl": "http://localhost:5000"
+      "apiUrl": "https://smartlessonplannerv-2.onrender.com"
     }
   }
 }
