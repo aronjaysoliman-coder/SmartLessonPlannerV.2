@@ -10,10 +10,17 @@ import { LessonPlanCore, UserProfile } from "./types";
  * connection string or an AI API key — see /server/.env.example.
  */
 
-const API_URL =
+const configuredApiUrl =
   process.env.EXPO_PUBLIC_API_URL ||
   (Constants.expoConfig?.extra?.apiUrl as string | undefined) ||
   "http://localhost:5000";
+// A physical phone's localhost is the phone, not the Expo development PC.
+const developmentHost = Constants.expoConfig?.hostUri?.split(":")[0];
+const API_URL =
+  __DEV__ && Platform.OS !== "web" && developmentHost &&
+  /^https?:\/\/(localhost|127\.0\.0\.1)(:|\/|$)/i.test(configuredApiUrl)
+    ? configuredApiUrl.replace(/^(https?:\/\/)(localhost|127\.0\.0\.1)/i, `$1${developmentHost}`)
+    : configuredApiUrl;
 const SESSION_KEY = "smart-lesson-planner-session";
 let sessionToken: string | null | undefined;
 
