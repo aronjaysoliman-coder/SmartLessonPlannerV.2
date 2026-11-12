@@ -89,7 +89,7 @@ async function generateLessonDraft(payload, { signal } = {}) {
     ...(isReasoningModel ? { reasoning_budget: 2000 } : {}),
   };
 
-  const completion = await getClient().chat.completions.create(request, { signal, timeout: 40000, maxRetries: 0 });
+  const completion = await getClient().chat.completions.create(request, { signal, timeout: 75000, maxRetries: 0 });
 
   const raw = completion.choices?.[0]?.message?.content || '';
   if (!raw.trim()) {

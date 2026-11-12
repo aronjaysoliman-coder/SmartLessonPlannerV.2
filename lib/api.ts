@@ -206,7 +206,9 @@ export async function generateSectionSuggestion(payload: AiDraftRequest & { sect
   const cancel = () => controller.abort();
   signal.addEventListener('abort', cancel, { once: true });
   if (signal.aborted) cancel();
-  const timer = setTimeout(() => { timedOut = true; controller.abort(); }, 45000);
+  // A sleeping hosted backend must wake before its provider request starts.
+  // Keep the client deadline longer than cold start plus the server deadline.
+  const timer = setTimeout(() => { timedOut = true; controller.abort(); }, 150000);
   try {
     const result = await apiFetch('/api/generate', { method: 'POST', body: JSON.stringify(payload), signal: controller.signal }) as { suggestion?: unknown };
     if (typeof result.suggestion !== 'string' || !result.suggestion.trim()) throw new Error('The AI returned no suggestion for this section. Try again or write your own.');
