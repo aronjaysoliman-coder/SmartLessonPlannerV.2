@@ -29,6 +29,10 @@ router.post('/', async (req, res) => {
   } catch (err) {
     if (controller.signal.aborted) return;
     console.error('[generate] failed:', err.message);
+    if (err.code === 'AI_NOT_CONFIGURED') return res.status(503).json({ error: err.message });
+    if (err.status === 401 || err.status === 403) return res.status(503).json({ error: 'The AI provider rejected the server credentials. Check NVIDIA_API_KEY and model access in Render.' });
+    if (err.status === 404) return res.status(503).json({ error: 'The configured AI model or endpoint is unavailable. Check NVIDIA_MODEL and NVIDIA_BASE_URL in Render.' });
+    if (err.status === 429) return res.status(429).json({ error: 'The AI provider usage limit was reached. Please try again later.' });
     if (err.name === 'APIConnectionTimeoutError') return res.status(504).json({ error: 'AI suggestion took too long. Please try again or write this section manually.' });
     res.status(502).json({ error: "The AI assistant couldn't draft this section right now. Please try again or fill it in manually." });
   } finally {

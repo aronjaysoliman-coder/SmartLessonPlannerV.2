@@ -4,7 +4,7 @@ import { LessonPlanCore } from './types';
 
 /** Same Classic School layout and pagination as the native export. */
 export async function exportLessonPlanPdf(plan: LessonPlanCore): Promise<string> {
-  const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
+  const pdf = new jsPDF({ unit: 'pt', format: 'a4', orientation: plan.planType === 'ILAW' ? 'landscape' : 'portrait' });
   renderClassicPdf(pdf, plan);
   return URL.createObjectURL(pdf.output('blob'));
 }

@@ -4,7 +4,9 @@ let client = null;
 function getClient() {
   if (!client) {
     if (!process.env.NVIDIA_API_KEY) {
-      throw new Error('NVIDIA_API_KEY is not set on the server. Add it to server/.env.');
+      const error = new Error('AI suggestions are not configured. Add NVIDIA_API_KEY to the backend environment in Render.');
+      error.code = 'AI_NOT_CONFIGURED';
+      throw error;
     }
     client = new OpenAI({
       apiKey: process.env.NVIDIA_API_KEY,

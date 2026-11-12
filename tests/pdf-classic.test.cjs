@@ -46,3 +46,26 @@ test('long unbroken text and explicit paragraph breaks are wrapped without clipp
  assert.deepEqual(wrapClassicText('First\n\nSecond',300,10.5),['First','','Second']);
  const sections=classicSections(base());assert.ok(sections.some(section=>section.label.includes('Reflection'))===false);
 });
+
+test('ILAW uses a landscape grid with blue section bands and retains long assessment content across pages',()=>{
+ const {classicPageSize}=load('lib/pdf-classic.ts');
+ const plan={...base(),planType:'ILAW',assessment:Array.from({length:180},(_,i)=>`Question ${i}: explain a respectful response. UNIQUE${i}END`).join('\n'),ilaw:{contentStandard:'Verified content standard',performanceStandard:'Verified performance standard',preLesson:'Prepare',flow:'Explore and discuss',integration:'Filipino',extendedLearning:'Home practice'}};
+ const size=classicPageSize(plan),pages=buildClassicLayout(plan),text=pageText(pages);
+ assert.ok(size.width>size.height);assert.ok(pages.length>2);
+ for(const name of ['Intentions','Learning Experience','Assessment','Ways Forward','SCHOOL LOGO'])assert.ok(text.includes(name),name);
+ for(let i=0;i<180;i++)assert.equal(text.split(`UNIQUE${i}END`).length-1,1);
+ assert.ok(pages.some(page=>page.items.some(item=>item.kind==='rect'&&item.color?.join(',')==='194,230,242')));
+ for(const page of pages)for(const item of page.items){
+  if(item.kind==='rect'){assert.ok(item.y+item.height<=size.height-33);assert.ok(item.x+item.width<=size.width-27)}
+  if(item.kind==='text')assert.ok(item.y<size.height-15);
+ }
+ const html=buildClassicHtml(plan);assert.ok(html.includes('A4 landscape'));assert.ok(html.includes('rgb(194,230,242)'));assert.ok(html.includes('font-style="italic"'));
+});
+
+test('jsPDF and native ILAW exports share page dimensions even if jsPDF starts in portrait',()=>{
+ const {jsPDF}=require('jspdf');const {renderClassicPdf}=load('lib/pdf-classic-renderer.ts');
+ const plan={...base(),planType:'ILAW'};const pdf=new jsPDF({unit:'pt',format:'a4'});
+ renderClassicPdf(pdf,plan);
+ assert.ok(pdf.internal.pageSize.getWidth()>pdf.internal.pageSize.getHeight());
+ assert.equal(pdf.getNumberOfPages(),buildClassicLayout(plan).length);
+});

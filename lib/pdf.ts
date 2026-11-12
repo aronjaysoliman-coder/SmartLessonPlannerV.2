@@ -1,12 +1,13 @@
 import * as Print from 'expo-print';
 import * as Sharing from 'expo-sharing';
-import { buildClassicHtml, CLASSIC_PDF } from './pdf-classic';
+import { buildClassicHtml, classicPageSize } from './pdf-classic';
 import { LessonPlanCore } from './types';
 
 /** Default finished-plan export: Classic School layout on A4 pages. */
 export async function exportLessonPlanPdf(plan: LessonPlanCore): Promise<string> {
   const html = buildClassicHtml(plan);
-  const { uri } = await Print.printToFileAsync({ html, width: CLASSIC_PDF.width, height: CLASSIC_PDF.height, margins: { top: 0, right: 0, bottom: 0, left: 0 }, base64: false });
+  const { width, height } = classicPageSize(plan);
+  const { uri } = await Print.printToFileAsync({ html, width, height, margins: { top: 0, right: 0, bottom: 0, left: 0 }, base64: false });
   return uri;
 }
 
